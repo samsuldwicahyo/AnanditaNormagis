@@ -1,0 +1,1 @@
+var json_TONGGAKKM_PT_25K_11 = {"type":"FeatureCollection","name":"TONGGAKKM_PT_25K_11","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"NAMOBJ":null,"FCODE":null,"REMARK":"Tonggak/Pal KM","SRS_ID":null,"LCODE":"CA0220","METADATA":null},"geometry":null}]}

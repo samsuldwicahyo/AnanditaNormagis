@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyek GIS Desa - Karangpucung</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .hero-section {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+        .content-section {
+            padding: 40px 0;
+        }
+        .navbar-nav .nav-link {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">GIS Desa Karangpucung</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#home">Beranda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#peta">Peta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#keterangan">Keterangan</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#tentang">Tentang Desa</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<div class="hero-section" id="home">
+    <div class="container text-center">
+        <h1 class="display-6">Selamat Datang di Desa Karangpucung</h1>
+        <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Desa Karangpucung" class="img-fluid rounded my-3">
+        <p class="lead">Desa Karangpucung terletak di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Provinsi Jawa Tengah. Desa ini merupakan bagian dari wilayah Purwokerto yang terkenal dengan keindahan alam dan kekayaan budaya lokal.</p>
+        <p><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A179</p>
+    </div>
+</div>
+
+<!-- Content Sections -->
+<div class="content-section" id="peta">
+    <div class="container">
+        <h2 class="text-center">Peta Desa</h2>
+        <p class="text-center">Tampilan peta geografis desa yang mencakup informasi wilayah.</p>
+        <!-- Placeholder for GIS Map -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="peta.html" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="content-section" id="keterangan">
+    <div class="container">
+        <h2>Keterangan</h2>
+        <p>Tujuan pembuatan peta GIS Desa Karangpucung adalah untuk memberikan informasi yang lengkap mengenai batas wilayah, fasilitas umum, area penting, dan potensi lokal. Dengan peta ini, masyarakat dapat lebih mudah memahami geografi desa dan akses layanan publik serta wisata.</p>
+    </div>
+</div>
+
+<div class="content-section" id="tentang">
+    <div class="container">
+        <h2>Tentang Desa Karangpucung</h2>
+        <p><strong>Sejarah dan Letak Geografis:</strong> Karangpucung terletak di wilayah barat Kabupaten Cilacap dan berbatasan dengan Jawa Barat. Wilayah ini memiliki perkembangan budaya lokal yang kuat.</p>
+        <p><strong>Visi dan Misi Pemerintahan:</strong> Pemerintah Kecamatan Karangpucung berkomitmen untuk meningkatkan kesejahteraan masyarakat melalui pengembangan ekonomi, infrastruktur, dan peningkatan pelayanan publik yang transparan.</p>
+        <p><strong>Pelayanan Publik:</strong> Layanan administrasi mencakup perekaman KTP-el, pembuatan KK, dan pengurusan dokumen lainnya. Pemerintah berusaha memberikan layanan yang efisien agar memudahkan masyarakat.</p>
+        <p><strong>Budaya dan Potensi Desa:</strong> Setiap desa di Karangpucung menawarkan potensi alam, budaya, dan ekonomi lokal, mulai dari kerajinan tangan, hasil pertanian, hingga wisata alam.</p>
+        <p><strong>Pembangunan dan Kegiatan Masyarakat:</strong> Program Musrenbangdes diadakan rutin untuk melibatkan masyarakat dalam perencanaan pembangunan. Pemerintah juga mendorong kegiatan sosial dan pendidikan sebagai bagian dari pembangunan masyarakat.</p>
+    </div>
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Smooth Scroll Script -->
+<script>
+    $(document).ready(function() {
+        // Smooth scrolling for internal links
+        $('a.nav-link').on('click', function(event) {
+            if (this.hash !== "") {
+                event.preventDefault();
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 56
+                }, 800);
+            }
+        });
+    });
+</script>
+</body>
+</html>
