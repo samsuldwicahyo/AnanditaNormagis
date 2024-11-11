@@ -1,0 +1,1 @@
+var json_rumah_13 = {"type":"FeatureCollection","name":"rumah_13","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":null,"n":"Rumah Anandita Norma"},"geometry":{"type":"Point","coordinates":[109.233500824534019,-7.448668741867275]}}]}

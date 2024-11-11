@@ -1,7 +1,7 @@
 var size = 0;
 var placement = 'point';
 
-var style_RUMAHKU_16 = function(feature, resolution){
+var style_rumah_13 = function(feature, resolution){
     var context = {
         feature: feature,
         variables: {}
@@ -9,7 +9,7 @@ var style_RUMAHKU_16 = function(feature, resolution){
     var value = ""
     var labelText = "";
     size = 0;
-    var labelFont = "7.800000000000001px \'Open Sans\', sans-serif";
+    var labelFont = "9.1px \'Arial Black\', sans-serif";
     var labelFill = "#323232";
     var bufferColor = "#fafafa";
     var bufferWidth = 1.0;
@@ -17,11 +17,11 @@ var style_RUMAHKU_16 = function(feature, resolution){
     var offsetX = 8;
     var offsetY = 3;
     var placement = 'point';
-    if (feature.get("NAMA") !== null) {
-        labelText = String(feature.get("NAMA"));
+    if (feature.get("n") !== null) {
+        labelText = String(feature.get("n"));
     }
     var style = [ new ol.style.Style({
-        image: new ol.style.RegularShape({radius: 5.2 + size, points: 4,
+        image: new ol.style.RegularShape({radius: 7.6 + size, points: 4,
             stroke: new ol.style.Stroke({color: 'rgba(128,17,25,1.0)', lineDash: null, lineCap: 'butt', lineJoin: 'miter', width: 1.52}), fill: new ol.style.Fill({color: 'rgba(219,30,42,1.0)'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
