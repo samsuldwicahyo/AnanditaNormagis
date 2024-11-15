@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyek GIS Desa - Karangpucung</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             padding-top: 56px;
+            transition: background-color 0.3s, color 0.3s;
         }
         .hero-section {
-            background-color: #f8f9fa;
             padding: 50px 0;
         }
         .content-section {
@@ -18,6 +19,13 @@
         }
         .navbar-nav .nav-link {
             font-size: 1.1rem;
+        }
+        .dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .btn-dark-mode {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -27,33 +35,38 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">GIS Desa Karangpucung</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#home">Beranda</a>
+                    <a class="nav-link" href="#home"><i class="fas fa-home"></i> Beranda</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#peta">Peta</a>
+                    <a class="nav-link" href="#peta"><i class="fas fa-map"></i> Peta</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#keterangan">Keterangan</a>
+                    <a class="nav-link" href="#keterangan"><i class="fas fa-info-circle"></i> Keterangan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#tentang">Tentang Desa</a>
+                    <a class="nav-link" href="#tentang"><i class="fas fa-users"></i> Tentang Desa</a>
                 </li>
             </ul>
+            <!-- Toggle Dark/Light Mode -->
+            <button id="darkModeToggle" class="btn btn-outline-secondary ms-3 btn-dark-mode">
+                <i class="fas fa-moon"></i> Dark Mode
+            </button>
         </div>
     </div>
 </nav>
+
 <!-- Hero Section -->
 <div class="hero-section" id="home">
     <div class="container text-center">
         <h1 class="display-6">Selamat Datang di Kelurahan Karangpucung</h1>
         <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Kelurahan Karangpucung" class="img-fluid rounded my-3">
-        <p class="lead">Karangpucung adalah sebuah kelurahan yang terletak di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah. Terkenal sebagai salah satu wilayah urban di Purwokerto, Karangpucung memiliki karakteristik masyarakat yang beragam serta infrastruktur yang berkembang pesat. Kelurahan ini dikenal sebagai pusat perdagangan, jasa, dan pendidikan yang semakin berkembang seiring waktu.</p>
+        <p class="lead">Karangpucung adalah sebuah kelurahan yang terletak di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah. Terkenal sebagai salah satu wilayah urban di Purwokerto, Karangpucung memiliki karakteristik masyarakat yang beragam serta infrastruktur yang berkembang pesat.</p>
         <p><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A170</p>
     </div>
 </div>
@@ -63,8 +76,8 @@
     <div class="container">
         <h2 class="text-center">Peta Kelurahan</h2>
         <p class="text-center">Tampilan peta geografis kelurahan yang mencakup informasi wilayah serta fasilitas publik di Karangpucung.</p>
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="peta.html" allowfullscreen></iframe>
+        <div class="ratio ratio-16x9">
+            <iframe src="peta.html" allowfullscreen></iframe>
         </div>
     </div>
 </div>
@@ -82,31 +95,27 @@
         <p><strong>Sejarah dan Letak Geografis:</strong> Kelurahan Karangpucung merupakan bagian dari Kecamatan Purwokerto Selatan yang berperan penting dalam perkembangan kota Purwokerto. Berlokasi strategis dekat pusat kota, Karangpucung berkembang sebagai kawasan pemukiman dan perdagangan yang ramai.</p>
         <p><strong>Visi dan Misi Pemerintahan:</strong> Pemerintah Kelurahan Karangpucung berfokus pada pengembangan ekonomi lokal, peningkatan kualitas layanan publik, serta menjaga ketertiban dan keamanan lingkungan untuk kesejahteraan masyarakat.</p>
         <p><strong>Pelayanan Publik:</strong> Pemerintah menyediakan berbagai layanan administrasi seperti pembuatan KTP, Kartu Keluarga (KK), serta akta kelahiran dengan prosedur yang cepat dan transparan untuk mempermudah warga.</p>
-        <p><strong>Budaya dan Potensi Lokal:</strong> Karangpucung memiliki komunitas yang aktif dalam kegiatan seni dan budaya, dengan acara rutin seperti pasar malam dan pertunjukan seni tradisional. Selain itu, banyak usaha kecil menengah (UKM) yang bergerak di bidang kuliner dan kerajinan tangan.</p>
-        <p><strong>Program Pembangunan:</strong> Berbagai program pembangunan dilaksanakan, termasuk perbaikan jalan, pembangunan fasilitas umum, dan peningkatan kualitas pendidikan. Pemerintah juga sering mengadakan Musrenbang untuk melibatkan masyarakat dalam perencanaan pembangunan kelurahan.</p>
+        <p><strong>Budaya dan Potensi Lokal:</strong> Karangpucung memiliki komunitas yang aktif dalam kegiatan seni dan budaya, dengan acara rutin seperti pasar malam dan pertunjukan seni tradisional. Banyak usaha kecil menengah (UKM) yang bergerak di bidang kuliner dan kerajinan tangan.</p>
     </div>
 </div>
 
-
 <!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
 
-<!-- Smooth Scroll Script -->
+<!-- Dark/Light Mode Toggle Script -->
 <script>
-    $(document).ready(function() {
-        // Smooth scrolling for internal links
-        $('a.nav-link').on('click', function(event) {
-            if (this.hash !== "") {
-                event.preventDefault();
-                var hash = this.hash;
-                $('html, body').animate({
-                    scrollTop: $(hash).offset().top - 56
-                }, 800);
-            }
-        });
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    const body = document.body;
+
+    darkModeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        const isDarkMode = body.classList.contains('dark-mode');
+        darkModeToggle.innerHTML = isDarkMode
+            ? '<i class="fas fa-sun"></i> Light Mode'
+            : '<i class="fas fa-moon"></i> Dark Mode';
     });
 </script>
+
 </body>
 </html>
