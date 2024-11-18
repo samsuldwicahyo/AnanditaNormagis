@@ -1,121 +1,257 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyek GIS kelurahan Karangpucung</title>
+    <title>Proyek GIS Kelurahan Karangpucung</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
     <style>
+        /* Global Styles */
         body {
-            padding-top: 56px;
             transition: background-color 0.3s, color 0.3s;
+            font-family: 'Arial', sans-serif;
         }
-        .hero-section {
-            padding: 50px 0;
-        }
-        .content-section {
-            padding: 40px 0;
-        }
-        .navbar-nav .nav-link {
-            font-size: 1.1rem;
-        }
+
         .dark-mode {
             background-color: #121212;
-            color: #ffffff;
+            color: #f5f5f5;
         }
-        .btn-dark-mode {
-            cursor: pointer;
+
+        a {
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: #007bff;
+        }
+
+        /* Navbar */
+        .navbar-light {
+            background-color: #f8f9fa;
+        }
+
+        .navbar-light .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .navbar-dark .nav-link {
+            color: #f8f9fa;
+        }
+
+        .navbar-dark {
+            background-color: #333;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            color: #fff;
+            text-align: center;
+        }
+
+        .hero-section img {
+            width: 100%;
+            height: auto;
+            filter: brightness(50%);
+        }
+
+        .hero-section .overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 10;
+            width: 80%;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        /* Section Styles */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .content-section h2 {
+            font-weight: bold;
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .content-section h2:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 4px;
+            background-color: #007bff;
+        }
+
+        .content-section h2 i {
+            color: #007bff;
+            margin-right: 10px;
+        }
+       
+
+        /* Decorations */
+        .section-divider {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #007bff, transparent);
+            margin: 40px 0;
+        }
+
+        #peta iframe {
+            border: none;
+        }
+
+        .gallery img {
+            transition: transform 0.3s;
+            border: 5px solid #f8f9fa;
+            border-radius: 5px;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            border-color: #007bff;
         }
     </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">GIS Desa Karangpucung</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home"><i class="fas fa-home"></i> Beranda</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#peta"><i class="fas fa-map"></i> Peta</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#keterangan"><i class="fas fa-info-circle"></i> Keterangan</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tentang"><i class="fas fa-users"></i> Tentang Desa</a>
-                </li>
-            </ul>
-            <!-- Toggle Dark/Light Mode -->
-            <button id="darkModeToggle" class="btn btn-outline-secondary ms-3 btn-dark-mode">
-                <i class="fas fa-moon"></i> Dark Mode
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">GIS Desa Karangpucung</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home"><i class="fas fa-home"></i> Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#peta"><i class="fas fa-map"></i> Peta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#keterangan"><i class="fas fa-info-circle"></i> Keterangan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tentang"><i class="fas fa-users"></i> Tentang Desa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#galeri"><i class="fas fa-images"></i> Galeri</a>
+                    </li>
+                </ul>
+                <button id="darkModeToggle" class="btn btn-outline-secondary ms-3">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section" id="home">
+        <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Kelurahan Karangpucung">
+        <div class="overlay-text">
+            <h1 style="text-align: center;">Selamat Datang di Kelurahan Karangpucung</h1>
+            <p>Karangpucung adalah sebuah kelurahan di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah.
+            </p>
+            <p><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A170</p>
         </div>
     </div>
-</nav>
 
-<!-- Hero Section -->
-<div class="hero-section" id="home">
-    <div class="container text-center">
-        <h1 class="display-6">Selamat Datang di Kelurahan Karangpucung</h1>
-        <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Kelurahan Karangpucung" class="img-fluid rounded my-3">
-        <p class="lead">Karangpucung adalah sebuah kelurahan yang terletak di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah. Terkenal sebagai salah satu wilayah urban di Purwokerto, Karangpucung memiliki karakteristik masyarakat yang beragam serta infrastruktur yang berkembang pesat.</p>
-        <p><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A170</p>
-    </div>
-</div>
-
-<!-- Content Sections -->
-<div class="content-section" id="peta">
-    <div class="container">
-        <h2 class="text-center">Peta Kelurahan</h2>
-        <p class="text-center">Tampilan peta geografis kelurahan yang mencakup informasi wilayah serta fasilitas publik di Karangpucung.</p>
-        <div class="ratio ratio-16x9">
-            <iframe src="peta.html" allowfullscreen></iframe>
+    <!-- Content Sections -->
+    <div class="content-section" id="peta">
+        <div class="container">
+            <h2><i class="fas fa-map"></i> Peta Kelurahan</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center;"> Tampilan peta geografis kelurahan yang mencakup informasi wilayah serta fasilitas publik di Karangpucung.</p>
+            <div class="ratio ratio-16x9">
+                <iframe src="peta.html" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
-</div>
 
-<div class="content-section" id="keterangan">
-    <div class="container">
-        <h2>Keterangan</h2>
-        <p>Tujuan pembuatan peta GIS Kelurahan Karangpucung adalah untuk memberikan gambaran yang akurat mengenai batas wilayah, fasilitas umum seperti sekolah, pasar, dan puskesmas, serta potensi lokal yang dimiliki. Peta ini diharapkan dapat membantu masyarakat dan pengunjung dalam mengakses berbagai layanan dan fasilitas di sekitar Karangpucung.</p>
+    <div class="content-section" id="keterangan">
+        <div class="container">
+            <h2><i class="fas fa-info-circle"></i> Keterangan</h2>
+            <div class="section-divider"></div>
+            <p>Tujuan pembuatan peta GIS Kelurahan Karangpucung adalah untuk memberikan gambaran yang akurat mengenai batas wilayah, fasilitas umum seperti sekolah, pasar, dan puskesmas, serta potensi lokal yang dimiliki. Peta ini diharapkan dapat membantu masyarakat dan pengunjung dalam mengakses berbagai layanan dan fasilitas di sekitar Karangpucung.</p>
+        </div>
     </div>
-</div>
 
-<div class="content-section" id="tentang">
-    <div class="container">
-        <h2>Tentang Kelurahan Karangpucung</h2>
-        <p><strong>Sejarah dan Letak Geografis:</strong> Kelurahan Karangpucung merupakan bagian dari Kecamatan Purwokerto Selatan yang berperan penting dalam perkembangan kota Purwokerto. Berlokasi strategis dekat pusat kota, Karangpucung berkembang sebagai kawasan pemukiman dan perdagangan yang ramai.</p>
-        <p><strong>Visi dan Misi Pemerintahan:</strong> Pemerintah Kelurahan Karangpucung berfokus pada pengembangan ekonomi lokal, peningkatan kualitas layanan publik, serta menjaga ketertiban dan keamanan lingkungan untuk kesejahteraan masyarakat.</p>
-        <p><strong>Pelayanan Publik:</strong> Pemerintah menyediakan berbagai layanan administrasi seperti pembuatan KTP, Kartu Keluarga (KK), serta akta kelahiran dengan prosedur yang cepat dan transparan untuk mempermudah warga.</p>
-        <p><strong>Budaya dan Potensi Lokal:</strong> Karangpucung memiliki komunitas yang aktif dalam kegiatan seni dan budaya, dengan acara rutin seperti pasar malam dan pertunjukan seni tradisional. Banyak usaha kecil menengah (UKM) yang bergerak di bidang kuliner dan kerajinan tangan.</p>
+    <div class="content-section" id="tentang">
+        <div class="container">
+            <h2><i class="fas fa-users"></i> Tentang Kelurahan Karangpucung</h2>
+            <div class="section-divider"></div>
+            <p ><strong>Sejarah dan Letak Geografis:</strong> Kelurahan Karangpucung merupakan bagian dari Kecamatan Purwokerto Selatan yang berperan penting dalam perkembangan kota Purwokerto. Berlokasi strategis dekat pusat kota, Karangpucung berkembang sebagai kawasan pemukiman dan perdagangan yang ramai.</p>
+            <p><strong>Visi dan Misi Pemerintahan:</strong> Pemerintah Kelurahan Karangpucung berfokus pada pengembangan ekonomi lokal, peningkatan kualitas layanan publik, serta menjaga ketertiban dan keamanan lingkungan untuk kesejahteraan masyarakat.</p>
+            <p><strong>Pelayanan Publik:</strong> Pemerintah menyediakan berbagai layanan administrasi seperti pembuatan KTP, Kartu Keluarga (KK), serta akta kelahiran dengan prosedur yang cepat dan transparan untuk mempermudah warga.</p>
+            <p><strong>Budaya dan Potensi Lokal:</strong> Karangpucung memiliki komunitas yang aktif dalam kegiatan seni dan budaya, dengan acara rutin seperti pasar malam dan pertunjukan seni tradisional. Banyak usaha kecil menengah (UKM) yang bergerak di bidang kuliner dan kerajinan tangan.</p>
+         </div>
     </div>
-</div>
 
-<!-- JavaScript Libraries -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <div class="content-section" id="galeri">
+        <div class="container">
+            <h2><i class="fas fa-images"></i> Galeri</h2>
+            <div class="section-divider"></div>
+            <div class="row gallery">
+                <div class="col-md-4 mb-3">
+                    <a href="https://www.bercahayanews.com/wp-content/uploads/2023/01/terminal-karangpucung.jpg" data-lightbox="gallery" data-title="Foto 1">
+                        <img src="https://www.bercahayanews.com/wp-content/uploads/2023/01/terminal-karangpucung.jpg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="https://www.depkes.org/wp-content/uploads/2022/10/foto-outlet-uptd-puskesmas-karangpucung-ii-di-karangpucung-cilacap-1665579554-1.jpeg" data-lightbox="gallery" data-title="Foto 2">
+                        <img src="https://www.depkes.org/wp-content/uploads/2022/10/foto-outlet-uptd-puskesmas-karangpucung-ii-di-karangpucung-cilacap-1665579554-1.jpeg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="https://kec-karangtengah.tangerangkota.go.id/assets/uploads/news_20220121_1642750734.jpeg" data-lightbox="gallery" data-title="Foto 2">
+                        <img src="https://kec-karangtengah.tangerangkota.go.id/assets/uploads/news_20220121_1642750734.jpeg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="https://i.ytimg.com/vi/7oumr5Ieq2w/maxresdefault.jpg" data-lightbox="gallery" data-title="Foto 2">
+                        <img src="https://i.ytimg.com/vi/7oumr5Ieq2w/maxresdefault.jpg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="https://kec-karangtengah.tangerangkota.go.id/assets/uploads/WhatsApp_Image_2022-01-20_at_09_47_49.jpeg" data-lightbox="gallery" data-title="Foto 2">
+                        <img src="https://kec-karangtengah.tangerangkota.go.id/assets/uploads/WhatsApp_Image_2022-01-20_at_09_47_49.jpeg" class="img-fluid">
+                    </a>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <a href="https://radarbanyumas.disway.id/upload/cb986c9fcf236ccbe89448b98703dca9.jpeg" data-lightbox="gallery" data-title="Foto 2">
+                        <img src="https://radarbanyumas.disway.id/upload/cb986c9fcf236ccbe89448b98703dca9.jpeg" class="img-fluid">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Dark/Light Mode Toggle Script -->
-<script>
-    const darkModeToggle = document.getElementById('darkModeToggle');
-    const body = document.body;
+    <!-- Dark/Light Mode Script -->
+    <script>
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
 
-    darkModeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDarkMode = body.classList.contains('dark-mode');
-        darkModeToggle.innerHTML = isDarkMode
-            ? '<i class="fas fa-sun"></i> Light Mode'
-            : '<i class="fas fa-moon"></i> Dark Mode';
-    });
-</script>
-
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
+            darkModeToggle.innerHTML = isDarkMode
+                ? '<i class="fas fa-sun"></i> Light Mode'
+                : '<i class="fas fa-moon"></i> Dark Mode';
+        });
+    </script>
 </body>
+
 </html>
