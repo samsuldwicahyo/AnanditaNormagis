@@ -20,10 +20,14 @@
             color: #f5f5f5;
         }
 
-        a {
-            text-decoration: none;
+        .navbar-light {
+            background-color: #f8f9fa;
         }
 
+        .navbar-light .nav-link {
+            color: #333;
+            transition: color 0.3s;
+        }
         a:hover {
             color: #007bff;
         }
@@ -124,8 +128,6 @@
 </head>
 
 <body>
-
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">GIS Desa Karangpucung</a>
@@ -159,15 +161,18 @@
     </nav>
 
     <!-- Hero Section -->
-    <div class="hero-section" id="home">
-        <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Kelurahan Karangpucung">
-        <div class="overlay-text">
-            <h1 style="text-align: center;">Selamat Datang di Kelurahan Karangpucung</h1>
-            <p>Karangpucung adalah sebuah kelurahan di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah.
-            </p>
-            <p><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A170</p>
+>
+<div class="hero-section text-white" id="home" style="position: relative;">
+    <img src="https://i.ytimg.com/vi/qf8HUGkh9HM/maxresdefault.jpg" alt="Kelurahan Karangpucung" class="img-fluid w-100" style="max-height: 600px; object-fit: cover;">
+    <div class="overlay-text position-absolute top-50 start-50 translate-middle w-100 px-3">
+        <div class="card mx-auto bg-white bg-opacity-25 border-0 shadow-lg" style="max-width: 600px; padding: 1.5rem; border-radius: 1rem;">
+            <h1 class="text-center fw-bold mb-3" style="font-size: 1.8rem;">Selamat Datang di Kelurahan Karangpucung</h1>
+            <p class="text-center mb-2" style="font-size: 1rem;">Karangpucung adalah sebuah kelurahan di Kecamatan Purwokerto Selatan, Kabupaten Banyumas, Jawa Tengah.</p>
+            <p class="text-center mb-0" style="font-size: 0.9rem;"><strong>Nama:</strong> Anandita Norma | <strong>NIM:</strong> 22SA21A170</p>
         </div>
     </div>
+</div>
+
 
     <!-- Content Sections -->
     <div class="content-section" id="peta">
@@ -251,7 +256,21 @@
                 ? '<i class="fas fa-sun"></i> Light Mode'
                 : '<i class="fas fa-moon"></i> Dark Mode';
         });
+        
     </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+      <script>
+          // Script for Dark Mode Toggle
+          const darkModeToggle = document.getElementById('darkModeToggle');
+          const body = document.body;
+  
+          darkModeToggle.addEventListener('click', () => {
+              body.classList.toggle('dark-mode');
+              const isDarkMode = body.classList.contains('dark-mode');
+              darkModeToggle.innerHTML = isDarkMode
+                  ? '<i class="fas fa-sun"></i> Light Mode'
+                  : '<i class="fas fa-moon"></i> Dark Mode';
+          });
 </body>
 
 </html>
